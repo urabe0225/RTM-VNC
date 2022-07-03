@@ -1,0 +1,18 @@
+version: '3'
+services:
+  rtmgui:
+    build:
+      context: ./
+      target: rtmvnc_test
+    container_name: rtmgui
+    ports:
+      - 6080:80
+    networks:
+      - rtmnet
+    volumes:
+      - /dev/shm:/dev/shm
+
+networks:
+  rtmnet:
+    name: rtmnet
+    driver: bridge
